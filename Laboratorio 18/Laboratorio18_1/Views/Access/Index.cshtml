@@ -1,0 +1,27 @@
+@{
+    ViewBag.Title = "Access";
+}
+
+<h2>Inicio de Sesión</h2>
+
+<div>
+    <input id='email' placeholder='Email'/>
+    <input id='password' type='password' placeholder='Password'/>
+    <button id='btn'>Entrar</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$("#btn").click(function(){
+    $.post("/Access/Verify", {
+        email: $("#email").val(),
+        password: $("#password").val()
+    }, function(data){
+        if(data.ok){
+            window.location="/Home/Index";
+        } else {
+            alert("Credenciales incorrectas");
+        }
+    });
+});
+</script>
