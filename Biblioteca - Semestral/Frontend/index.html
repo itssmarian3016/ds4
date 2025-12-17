@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<title>Biblioteca</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--accent:#c7d2fe;--accent2:#99f6e4;--border:#e5e7eb}
+body{margin:0;font-family:Montserrat;background:linear-gradient(#f8fafc,#eef2ff)}
+.container{max-width:1100px;margin:40px auto;padding:30px}
+.card{background:#fff;padding:22px;border-radius:14px;margin-bottom:20px;border:1px solid var(--border)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.full{grid-column:1/-1}
+button{padding:10px;border:none;border-radius:10px;background:var(--accent);font-weight:600}
+input,select{padding:10px;border-radius:10px;border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse}
+th,td{padding:12px;border-bottom:1px solid var(--border)}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>📚 Biblioteca</h1>
+
+<section class="card">
+<h2>Registrar libro</h2>
+<form id="libroForm" class="grid">
+<input id="titulo" placeholder="Título" required>
+<input id="codigo" placeholder="Código" required>
+<input id="autor" class="full" placeholder="Autor" required>
+<input id="anio" type="number" placeholder="Año">
+<select id="genero"><option>General</option><option>Novela</option></select>
+<div class="full"><button>Guardar libro</button></div>
+</form>
+</section>
+
+<section class="card">
+<h2>Registrar préstamo</h2>
+<form id="prestamoForm" class="grid">
+<input id="usuario" placeholder="Usuario" required>
+<input id="libroId" type="number" placeholder="ID Libro" required>
+<input id="fecha" type="date" required>
+<div class="full"><button>Guardar préstamo</button></div>
+</form>
+</section>
+
+<section class="card">
+<h2>Préstamos</h2>
+<table>
+<thead><tr><th>#</th><th>Usuario</th><th>Libro</th><th>Fecha</th></tr></thead>
+<tbody id="prestamosBody"><tr><td colspan="4">Sin registros</td></tr></tbody>
+</table>
+</section>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
